@@ -1,0 +1,30 @@
+ <% layout('layout/boilerplate') %> 
+
+ <div style="text-align:center">
+
+ 
+  <form action="/edittext/<%=text._id %>?_method=PUT " method="POST" >
+ 
+<br>
+ <label for="title">Title:</label> <br>
+<input type="text" name="title" id="title" value="<%=text.title %> ">
+
+ <label for="text">Text:</label> <br>
+ 
+<textarea  id="text" name="text" rows="15" cols="66"> <%=text.text%>
+
+</textarea> <br>
+
+<label for="language">Language:</label>  
+<select name="language" id="language"  placeholder>
+  <option value="<%=text.language%>" ><%=text.language%>  </option>
+  <option value="English">ٍEnglish</option>
+  <option value="Persian">فارسی</option>
+  <option value="ُSwedish">Svenska</option>
+  <option value="Mixed">mixed</option>
+</select> <br/>
+
+<br>
+<button type="submit" class="btn btn-success">Save Edit</button> <br><br>
+</form>
+</div>

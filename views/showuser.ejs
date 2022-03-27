@@ -1,0 +1,46 @@
+<% layout('layout/boilerplate') %> 
+<br>
+<div class="d-flex justify-content-center">
+<main class="card col-6"; style="text-align:center">
+ <h3> <%= user.name %>'Page! </h3>
+ Email: <%= user.username %> <br>
+ Name: <%= user.name %> <br>
+ 
+ <br>
+  
+<% if(currentUser && currentUser.username == user.username ) { %> 
+
+<a href="/users/edit/<%=currentUser.id %>">Edit my Personal Information</a></a><br>
+
+<form action="/deleteuser/<%= currentUser.id %>   " method="get">
+  <br>
+<button  class="btn btn-danger" type="submit">ِDelete your Account</button>
+
+  </form>
+<br><br>
+
+<% if(!currentUser.activated) { %> 
+<br>
+
+ <h5>You have not activated your account yet,
+ Please login to your Email and activate your account</h5>
+<% } %> 
+<% } %> 
+<h1>Users Text</h1>
+<% for(let t of text){ %> 
+<ul>
+      <li style="list-style: none;"><h4><a href="/text/<%=t.id %>"><%=t.title %></a></h4> </li> 
+  <li style="list-style:none;"><%- t.text %> </li>
+  <% if(currentUser && currentUser.id==t.author.id){ %>  
+ <a href="/edittext/<%=t.id %>">Edit</a>
+
+  <% } %> 
+
+</ul>
+ <% } %> 
+
+</main>
+
+
+</div>
+<br>

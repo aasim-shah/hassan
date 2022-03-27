@@ -1,0 +1,19 @@
+
+<% layout('layout/boilerplate') %> 
+<br>
+<div class="d-flex justify-content-center">
+<main class="card col-6"; style="text-align:center">
+<br>
+  <form  action="/users/edit/<%=user._id%>?_method=PUT"method="POST" class="validated-form novalidate">
+        <h4>Here is edit user page</h4>
+        <div class="mb-3">
+          <label class="form-label" for="name">Your Name</label><br>
+          <input class="form-control" type="text" name="name" id="name" value="<%=user.name %> " required>
+        </div>
+
+ 
+        
+        <button type="submit" class="btn btn-success">Register Changes</button><br><br>
+      </form>
+</main>
+</div>
